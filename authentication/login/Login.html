@@ -1,0 +1,59 @@
+﻿<section class="homebg">
+    <img src="/images/login/icon_return.png" style="position:absolute; left:1rem; top:1rem;"  ng-click="login.go()"/>
+    <div class="fixed img-hdr" style="margin:5rem auto 2rem">
+        <div class="logo1"></div>
+    </div>
+    <div class="login-text" style="background: #fff;">
+        <p>
+            <label><img src="/images/login/icon_user.png" /></label>
+            <input type="text" class="input" ng-model="login.data.phone" placeholder="" tabindex="1">
+        </p>
+        <p>
+            <label><img src="/images/login/icon_pass.png" /></label>
+            <input type="password" class="input" ng-model="login.data.password" placeholder="" tabindex="2">
+            <span ng-click="login.goforget()">忘记密码?</span>
+        </p> 
+    </div>
+    <div style="font-size:12px; color:#999; padding:0 .5rem; text-align:center">*如有登录失败，请在手机号前添加国家及地区代码(如：86)</div>
+    <div class="login-submit">
+        <input type="button" value="登陆" class="dl" ng-click="login.login()">
+
+    </div>
+    <div class="login-bot">
+        <fieldset>
+            <legend><p>不用注册，直接登录</p></legend>
+        </fieldset>
+        <div class="flexbox">
+            <div class="cell">
+                <div class="hzdl img-hdr">
+                    <a href="/signin/weibo.aspx" style="background-image:url(../../../../images/login/icon_xinlang.png)" class="img-hdr"></a>
+                </div>
+                <p>新浪微博</p>
+            </div>
+            <div class="cell">
+                <div class="hzdl img-hdr" >
+                    <a href="/signin/qq.aspx" style="background-image:url(../../../../images/login/icon_qq.png)" class="img-hdr"></a>
+                </div>
+                <p>QQ好友</p>
+            </div>
+        </div>
+        <p><a href="#" ui-sref="root.register">立即注册 →</a></p>
+    </div>
+
+</section>
+<!--<div class="authentication login">
+    <div class="inputContainer">
+        <div class="inputRow">
+            <input type="text" ng-model="login.data.phone" placeholder="请输入您的手机号码" tabindex="1" />
+        </div>
+        <div class="inputRow">
+            <input type="password" ng-model="login.data.password" placeholder="请输入登陆密码" tabindex="2" />
+        </div>
+    </div>
+
+    <div class="buttonContainer">
+        <button class="blueButton" ng-click="login.login()">登录</button>
+    </div>
+
+    <div class="forgotPassword" ui-sref="root.forgetPassword">忘记密码</div>
+</div>-->

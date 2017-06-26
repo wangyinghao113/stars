@@ -1,0 +1,414 @@
+﻿/// <reference path="../app.scss" />
+
+/*.authentication {
+    background-color: #f2f2f2;
+    height: 100%;
+    @extend %clearfix;
+
+    .inputContainer {
+        font-size: 100%;
+        padding-top: 9.4%;
+        padding-bottom: 9%;
+        width: 100%;
+    }
+
+    .inputRow {
+        position: relative;
+        padding-bottom: 11.5%;
+        background-color: white;
+        border-bottom: 1px solid #e5e5e5;
+
+        &:first-of-type {
+            border-top: 1px solid #e5e5e5;
+            padding-bottom: 11.7%;
+        }
+
+        .lbl_title {
+            color: #1a1a1a;
+            width: 19%;
+            height: 100%;
+            position: absolute;
+            font-weight: normal;
+            margin: 0;
+            @extend %absolute-center-text-vertical;
+
+            span {
+                left: 17%;
+            }
+        }
+
+        input[type=text], input[type=password] {
+            width: 81%;
+            height: 100%;
+            position: absolute;
+            left: 19%;
+            padding-left: 2%;
+            padding-top: 2px;
+            z-index: 1;
+            background-color: transparent;
+
+            &.profilePassword {
+                width: 72.4%;
+            }
+        }
+
+        .error {
+            color: red;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            right: 3%;
+            font-weight: normal;
+            margin: 0;
+            @extend %absolute-center-text-vertical;
+            user-select: none;
+
+            span {
+                right: 0;
+            }
+        }
+
+        &.tacRow {
+            input {
+                width: 52.4%;
+            }
+
+            button {
+                width: 29.6%;
+                height: 100%;
+                left: 70.8%;
+                position: absolute;
+                background-color: transparent;
+                border: none;
+                border-left: 1px solid #e5e5e5;
+                color: #009ff0;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            .getTacBtn {
+                width: 29.6%;
+                height: 100%;
+                right: 0;
+                position: absolute;
+                border-left: 1px solid #e5e5e5;
+                color: #009ff0;
+                cursor: pointer;
+            }
+
+            .getTacText {
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                left: 50%;
+                margin-right: -50%;
+            }
+        }
+    }
+
+    .buttonContainer {
+        margin: 0 3%;
+        padding-bottom: 10.6%;
+        position: relative;
+    }
+
+    .blueButton {
+        background-color: #0d9e59;
+        color: white;
+        @extend %absolute-fill;
+        border: 0;
+        width: 100%;
+    }
+
+    .profile {
+        margin-top: 9.3%;
+        padding-bottom: 26.4%;
+        width: 26.4%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .imgHolder {
+        @extend %absolute-fill;
+        @extend %background-cover;
+        border-radius: 50%;
+    }
+
+    .addImg {
+        background-image: url('/images/register/icon_peo_add.png');
+        position: absolute;
+        width: 23.6%;
+        padding-bottom: 23.6%;
+        left: 71.4%;
+        bottom: -3.5%;
+        @extend %background-contain;
+
+        .fileinput-button {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    button.imgEyes {
+        background-image: url('/images/register/btn_eye_down.png');
+        @extend %background-contain;
+        height: 100%;
+        width: 8.6%;
+        left: 91.4%;
+        position: absolute;
+        background-color: transparent;
+        border: 0.3em solid transparent;
+        color: #009ff0;
+
+        &.eyeOpen {
+            background-image: url('/images/register/btn_eye.png');
+        }
+    }
+
+    &.resetPassword {
+        .inputRow {
+            .lbl_title {
+                width: 23%;
+            }
+
+            input[type=text], input[type=password] {
+                left: 23%;
+                width: 77%;
+            }
+        }
+    }
+
+    &.login {
+        .inputRow {
+            input[type=text], input[type=password] {
+                left: 0;
+                width: 100%;
+            }
+        }
+
+        .forgotPassword {
+            font-size: 70%;
+            color: #b3b3b3;
+            margin-right: 3%;
+            margin-top: 6%;
+            float: right;
+            cursor: pointer;
+            user-select: none;
+        }
+    }
+}*/
+
+
+/// <reference path="../app.scss" />
+/*.yzm{
+    &:focus{
+        background-color:red;
+    }
+}*/
+.login{
+    h4{
+        font-size:16px;
+    }
+    .dl{
+        padding:10px 15px;
+    }
+    .two{
+        display:none;
+    }
+}
+.homebg{
+       height: 100%;
+       position: fixed;
+       /*background: url(/images/personal/homepic.jpg) no-repeat;*/
+       background-color:#f5f5f5;
+       width:100%;
+       background-size:cover;
+       overflow:auto;
+    .profile {
+        margin-top: 20%;
+        margin-bottom: 10%;
+        padding-bottom: 26.4%;
+        width: 26.4%;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .imgHolder {
+        @extend %absolute-fill;
+        @extend %background-cover;
+        border-radius: 50%;
+    }
+
+    .addImg {
+        background-image: url('/images/register/icon_peo_add.png');
+        position: absolute;
+        width: 23.6%;
+        padding-bottom: 23.6%;
+        left: 71.4%;
+        bottom: -3.5%;
+        @extend %background-contain;
+
+        .fileinput-button {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    button.imgEyes {
+        background-image: url('/images/register/btn_eye_down.png');
+        @extend %background-contain;
+        height: 100%;
+        width: 8.6%;
+        left: 91.4%;
+        position: absolute;
+        background-color: transparent;
+        border: 0.3em solid transparent;
+        color: #009ff0;
+
+        &.eyeOpen {
+            background-image: url('/images/register/btn_eye.png');
+        }
+    }
+}
+.homebg .logo ,.homebg .logo1{
+   margin: auto;
+    height: 6rem;
+    width: 6rem;
+    background-image: url(../../../images/login/userimage.png);
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.homebg .logo1{
+    /*background: url(../images/userfile.png) no-repeat center;
+    background-size:30%;
+    position: relative;*/
+}
+.homebg .logo1 input{
+    position: absolute;
+    bottom: 23%;
+    left: 50%;
+    width: 5rem;
+    height: 5rem;
+    opacity: 0;
+}
+.homebg .logo img{
+    width:60%;
+}
+.homebg .login-text{
+    width: 100%;
+    margin: 0 auto;
+    .mt{
+        background-color:#ff5790;
+        color:#fff;
+    }
+    p{
+        position:relative;
+        label{
+            img{
+                width:70%;
+                margin:auto;
+                padding-left:1rem;
+            }
+        }
+        span{
+            position:absolute;
+            right:0.5rem;
+            bottom:1rem;
+        }
+    }
+    .yzm{
+        position: absolute;
+        right: 8px;
+        top: 38px;
+        .dl{
+            background-color:#2cb044 !important;
+            border:none;
+            color:#fff;
+        }
+    }
+}
+.homebg, .login-text{ 
+    .one, .two{
+        width:100% !important;
+    }
+    .code{
+        width: 70% !important;
+    }
+    .input{
+    width: 80%;
+    line-height: 4rem;
+    background-color: #fff;
+    border:none;
+    border-bottom:1px #e6e6e6 solid;
+    text-align: left;   
+    font-size: 1.8rem;
+    display:inline-block;
+    }
+  }
+.homebg .login-submit{
+    text-align: center;
+    margin-top:1rem;
+    }
+button[disabled], html input[disabled]{
+    background-color:#a0a0a0 !important;
+}
+.homebg .login-submit .dl{
+    padding: 1.5rem 0;
+    background-color: #ff5790;
+    border-radius: 3px;
+    color: #fff;
+    border:none;
+    font-size: 1.5rem;
+    width: 95%;
+    margin: 1rem auto
+}
+.homebg .login-submit p{
+    color: #808080;
+    line-height: 2rem;
+    font-size: 1.5rem;
+}
+.homebg .login-bot{
+    text-align: center;
+    color: #999;
+    line-height: 2.5rem;
+    font-size: 1.5rem;
+    a{
+        color:#dadada;
+    }
+    fieldset{
+            /*padding:10px;
+            margin:10px;*/
+            color:#dcdcdc; 
+            border-top:#dcdcdc solid 1px;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+        } 
+        legend{
+            background:#f2f2f2;
+            color:#dcdcdc;
+            border:none;
+            width:auto;
+            padding:0 1rem;
+            font-size:14px;
+        } 
+        .hzdl{
+            width:35%;
+            margin-bottom:1rem;
+            a{
+                width:65px;
+                height:65px;
+                display:block;
+            }
+        }
+}
+
+
+
+

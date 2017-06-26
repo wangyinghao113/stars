@@ -1,0 +1,64 @@
+﻿<section class="homebg">
+    <form name="form" class="clearfix">
+        <div class="profile">
+            <div class="imgHolder" background-image="registerEnd.getImgUrl(registerEnd.data.userPic)">
+                <div class="addImg">
+                    <v2-file-upload title="上传头像"
+                                    accept="image/*"
+                                    model="registerEnd.data.userPic">
+                    </v2-file-upload>
+                </div>
+            </div>
+        </div>
+        <div class="login">
+            <div class="login-text">
+                <input type="text" class="input" ng-model="registerEnd.data.nickname" placeholder="设置昵称">
+                <input type="password" class="input" ng-attr-type="{{registerEnd.viewPassword ? 'text' : 'password'}}" ng-model="registerEnd.data.password" placeholder="设置密码">
+                <button type="button" class="imgEyes" ng-class="{'eyeOpen': registerEnd.viewPassword}" ng-click="registerEnd.viewPassword = !registerEnd.viewPassword"></button>
+            </div>
+            <div class="login-submit">
+                <input type="submit" value="完成" class="dl" ng-click="registerEnd.submit()">
+            </div>
+            <div class="login-bot">
+                <p><a ui-sref="root.login" class="return">返回</a></p>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+
+<!--<div class="authentication">
+    <form name="form" class="clearfix">
+        <div class="profile">
+            <div class="imgHolder" background-image="registerEnd.getImgUrl(registerEnd.data.userPic)">
+                <div class="addImg">
+                    <v2-file-upload title="上传头像"
+                                    accept="image/*"
+                                    model="registerEnd.data.userPic">
+                    </v2-file-upload>
+                </div>
+            </div>
+        </div>
+
+        <div class="inputContainer">
+            <div class="inputRow">
+                <label class="lbl_title" for="name">
+                    <span>昵称</span>
+                </label>
+                <input type="text" ng-model="registerEnd.data.nickname" placeholder="请输入昵称" id="name" />
+            </div>
+            <div class="inputRow" for="password">
+                <label class="lbl_title">
+                    <span>密码</span>
+                </label>
+                <input class="profilePassword" ng-attr-type="{{registerEnd.viewPassword ? 'text' : 'password'}}" ng-model="registerEnd.data.password" placeholder="请输入密码" id="password" />
+                <button type="button" class="imgEyes" ng-class="{'eyeOpen': registerEnd.viewPassword}" ng-click="registerEnd.viewPassword = !registerEnd.viewPassword"></button>
+            </div>
+        </div>
+
+        <div class="buttonContainer">
+            <button class="blueButton" ng-click="registerEnd.submit()">完成</button>
+        </div>
+    </form>
+</div>-->
