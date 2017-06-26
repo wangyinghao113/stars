@@ -1,0 +1,15 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="padding: 0">
+            <div class="mainContainer">
+                <top-menu></top-menu>
+                <div ui-view class="contentContainer" ng-style="{height: app.contentHeight}" ng-class="{hasTopMenu: app.hasTopMenu, hasMenu: app.hasMenu}"></div>
+                <menu class="menuContainer"></menu>
+                <ucenter class="ucenterContainer"></ucenter>
+                <!--<ucenter ng-show="app.hasUCenter"></ucenter>-->
+                <sharer></sharer>
+            </div>
+        </div>
+    </div>
+</div>

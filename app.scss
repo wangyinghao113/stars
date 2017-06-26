@@ -1,0 +1,688 @@
+﻿%absolute-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+%absolute-center {
+    @extend %absolute-fill;
+    margin: auto;
+}
+
+%absolute-center-text-vertical {
+    span {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+%absolute-center-translate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%absolute-center-translate-vertical {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%background-cover {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+%background-contain {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+%img-object-fit{
+    object-fit:contain;
+    width:100%;
+    height:100%;
+}
+%img-object-fit-cover{
+    object-fit:cover;
+    width:100%;
+    height:100%;
+}
+
+%clearfix {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+%ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+/* 隐藏滚动条 */
+%scrollbar-hide {
+    &::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+    }
+}
+
+@for $i from 1 through 5 {
+    %ellipsis-#{$i} {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: $i;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+    }
+}
+
+%cash-icon{
+    &[data-type="1"]{
+        background-image: url(/images/store/doller_icon.png);
+    }
+    &[data-type="2"]{
+        background-image: url(/images/store/coin_icon.png);
+    }
+    &[data-type="3"]{
+        background-image: url(/images/store/diamond_icon.png);
+    }
+    &[data-type="4"]{
+        background-image: url(/images/store/lemon_icon.png);
+    }
+    &[data-type="6"]{
+        background-image: url(/images/store/points_icon.png);
+    }
+}
+
+%screen-banner{
+    .carousel{
+        height: 32rem;
+        background: black;
+    }
+    .carousel-inner{
+        height: 100%;
+        .text-center{
+            height: 100%;
+        }
+        img{
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .carousel-control{
+        $size: 3.8rem;
+        opacity: 1;
+        background: transparent;
+        height: $size;
+        top: 50%;
+        transform: translateY(-50%);
+        &:focus{
+            opacity: .5;
+        }
+        .glyphicon{
+            &::after{
+                content: "";
+                position:absolute;
+                z-index: 8;
+                @extend %absolute-center-translate;
+                width: $size;
+                height: $size;
+                background: rgba(0,0,0,.3);
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+%arrow{
+    background-image: url(/images/common/arrow_right.png);
+}
+
+@mixin status($dir : 'left') {
+    @if($dir == 'left'){
+        float:left;
+    }@else{
+        float:right;
+    }
+}
+ .status{
+  @include status('');
+}
+
+@import "common/variables";
+@import "common/mixin";
+@import "common/common";
+@import "component/topMenu";
+@import "component/popup";
+@import "component/multiDatesPicker";
+@import "component/sharer";
+@import "component/carousel";
+@import "component/waterfall";
+@import "welcome/welcome";
+@import "menu/menu";
+@import "authentication/authentication";
+@import "list/list";
+@import "home/home";
+@import "personal/personal";
+@import "shop/shop";
+@import "forum/forum";
+@import "personal/myDetails/myDetails";
+@import "search/search";
+@import "zhibo/zhibo";
+@import "ucenter/ucenter";
+@import "record/record";
+@import "yuyue/yuyue";
+@import "news/news";
+@import "activity/activity";
+@import "video/video";
+@import "photo/photo";
+@import "group/group";
+@import "dialog/dialog";
+@import "rank/rank";
+@import "store/store";
+@import "game/game";
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingHeiBold", sans-serif, SimHei, 黑体, STXihei, 华文细黑;
+    color: #1a1a1a;
+    background-color: #fff;
+        min-height: 100vh;
+    &.whiteBackground {
+        background-color: #f2f2f2;
+    }
+    &.greyBackground {
+        background-color: #f2f2f2;
+    }
+    &.blackBackground {
+        background-color: #000;
+    }
+}
+
+#my-video{
+    background-color:#000;
+}
+
+.flexbox{
+	display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+
+    &>.cell{
+	    -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        flex-basis: auto;
+        display: block!important;
+        flex-basis: 1px;
+        display: -webkit-box!important;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        display: -ms-flexbox!important;
+        -ms-flex-pack: center;
+        -ms-flex-align: center;
+        -webkit-box-orient: vertical;
+        -ms-flex-orient: vertical;
+        position: relative;
+
+        &.left{
+            -webkit-box-align: start;
+        }
+        &.right{
+            -webkit-box-align: end;
+        }
+        &.top{
+            -webkit-box-pack: start;
+        }
+        &.bottom{
+            -webkit-box-pack: end;
+        }
+        &.ng-hide:not(.ng-hide-animate){
+            display: none!important;
+        }
+    }
+
+    &>.fixed{
+        position: relative;
+    }
+
+    &.hide, &.ng-hide:not(.ng-hide-animate){
+        display: none!important;
+    }
+}
+
+.mainContainer {
+    @extend %clearfix;
+}
+
+.menuContainer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    margin: auto;
+    z-index: 999;
+
+    .menuContainer2 {
+        width: 100%;
+        padding-bottom: 13%;
+    }
+}
+
+.topMenuContainer {
+    height: 2.7em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 999;
+}
+
+.ucenterContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:1000;
+    section{
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+
+.fixedContainer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: auto;
+    z-index:999;
+}
+
+.container .row>.col-md-4{
+    min-height: 0;
+
+    @media (min-width: 768px) {
+        min-height: 1px;
+    }
+}
+
+.menuContainer, .topMenuContainer, .fixedContainer, .h5-sharer {
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+
+    @media (min-width: 992px) {
+        width: 323.33px;
+    }
+
+    @media (min-width: 1200px) {
+        width: 390px;
+    }
+}
+
+.contentContainer {
+    position: relative;
+    @extend %clearfix;
+
+    &.hasTopMenu {
+        margin-top: 2.7em;
+    }
+
+    &.hasMenu {
+        margin-bottom: 13%;
+    }
+}
+
+.message {
+    color: #b3b3b3;
+    font-size: 15px;
+    float: right;
+    margin: 0 5%;
+}
+
+::placeholder {
+    color: #b3b3b3;
+    opacity: 1;
+}
+
+input {
+    border: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.defaultBg {
+    background-color: #f2f2f2;
+}
+
+.whiteBg {
+    background-color: #ffffff;
+}
+
+// override bootstrap font location
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('/dist/fonts/glyphicons-halflings-regular.eot');
+    src: url('/dist/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/dist/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/dist/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+[perfect-scrollbar] {
+    position: relative;
+}
+
+.modal {
+
+    /*position:absolute;*/
+
+    .modal-dialog {
+        left: 50%;
+        width: 80%;
+        font-family: inherit;
+        margin-left: -40%;
+
+        @media (min-width: 768px) {
+            width: 614px;
+            margin-left: -307px;
+        }
+
+        @media (min-width: 992px) {
+            width: 258px;
+            margin-left: -129px;
+        }
+
+        @media (min-width: 1200px) {
+            width: 318px;
+            margin-left: -159px;
+        }
+    }
+
+    .modal-content {
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.pageLoad {
+    background-image: url("/images/common/loading.gif");
+    background-position: 50% 50%;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1em;
+    width: 10%;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding-bottom: 10%;
+    z-index: 8;
+}
+
+/* load more animation */
+.loadingDiv {
+    width: 100%;
+    padding: 2.5%;
+    background-color: white;
+
+    .loadingImg {
+        background-image: url("/images/common/loading.gif");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center bottom;
+        padding-bottom: 6%;
+    }
+}
+
+no-data-screen {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-bottom: 100%;
+
+    .container_nodata {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .img_nodata {
+        width: 35%;
+        margin: auto;
+        display: block;
+        padding-bottom: 8%;
+    }
+
+    .lbl_nodata {
+        color: #b3b3b3;
+        white-space: pre-wrap;
+        text-align: center;
+    }
+}
+
+.form-control.ng-invalid:focus {
+    border-color: #f00;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255,0,0,.4);
+}
+.font-size{
+            font-size: 1.5rem;
+        }
+        .clearfix{
+            clear: both;
+            overflow: hidden;
+            zoom:1;
+        }
+        .text-left{
+            text-align: left;
+            line-height: 3rem;
+        }
+        .text-center{
+            text-align: center;
+            line-height: 3rem;
+        }
+        .text-right{
+            text-align: right;
+            line-height: 3rem;
+        }
+        .pl{
+            padding-left:1rem;
+        }
+        .pr{
+            padding-right:1rem;
+        }
+        .orange{
+            color:#ffb901;
+        }
+        .green{
+            color: #13b5b1;
+        }
+        .gray{
+            color: #999;
+        }
+        .mt{
+            margin-top: 1rem;
+        }
+        .mb{
+            margin-bottom:1rem;
+        }
+        .divider{
+            background-color: #fff;
+        }
+        .divider-x{
+            margin: 0 9px;
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0,.1);
+        }
+        .img{
+    display: block;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    -ms-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+        }
+    .addcart ,.box-flex{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    z-index: 100;
+        }
+    .addcart-list ,.flex-sub{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+
+        }
+
+.carousel-indicators{
+    margin-bottom: 0;
+}
+
+// 播放器样式
+#mediaplay{
+    $h: 8rem;
+    position:fixed;
+    top: 0;
+    height: $h;
+    width: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar{
+        width:0;
+        height:0
+    }
+    .player-container-pad{
+        //position:fixed;
+        //top: 0;
+        //left: 0;
+        //right: 0;
+        height: $h+0.1;
+        visibility: hidden;
+    }
+    .player-container{
+        //position:fixed;
+        //top: -$h;
+        //left: 0;
+        //right: 0;
+        height: $h;
+        line-height: $h;
+        background: rgba(120, 21, 53, .7);
+        color: white;
+
+        .face{
+            width: 5rem;
+            height: 5rem;
+            margin: 1.5rem;
+            display: block;
+
+            img{
+                width: 100%;
+                height: 100%;
+                vertical-align: top;
+            }
+        }
+        .title{
+            -webkit-box-pack: initial;
+            word-break: break-all;
+            @extend %ellipsis-1;
+        }
+        .type1{
+            margin-top: 1.5rem;
+            margin-left: 1rem;
+            width: 5rem;
+            height: 5rem;
+            display: block;
+            border-radius: 50%;
+            @extend %background-contain;
+            background-image: url('/images/audioplay/pause.png');
+            &.play{
+                background-image: url('/images/audioplay/play.png');
+            }
+        }
+        .type2{
+            margin-top: 2.1rem;
+            margin-left: 1rem;
+            margin-right: 1.5rem;
+            width: 3.8rem;
+            height: 3.8rem;
+            display: block;
+            border-radius: 50%;
+            @extend %background-contain;
+            background-image: url('/images/audioplay/next.png');
+        }
+    }
+    .tap-slidebar{
+        position: fixed;
+        top: 3.5rem;
+        right: 0;
+        width: 6.5rem;
+        height: 4.5rem;
+        line-height: 4.5rem;
+        text-align: center;
+        padding-left: 1rem;
+        color: white;
+        border-top-left-radius: 2.25rem;
+        border-bottom-left-radius: 2.25rem;
+        @extend %background-contain;
+        background-color: #ff5790;
+        background-image: url('/images/audioplay/button.png');
+    }
+}
+
+.glb-pop-up{
+    position: fixed;
+    bottom: 0;
+    bottom: 35vw;
+    right: 0;
+    width: 10rem;
+    height: 26rem;
+    display: block;
+    background: url('/images/common/popup_btn.png') no-repeat;
+    background-size: contain;
+    .close-btn{
+        position: absolute;
+        right: 0;
+        bottom: 20rem;
+        width: 3rem;
+        height: 3rem;
+        opacity:0;
+    }
+}
