@@ -1,0 +1,62 @@
+﻿/// <reference path="../app.scss" />
+
+.welcome {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .mock {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: url("/images/welcome/default_welcome.png");
+        @extend %background-cover;
+    }
+
+
+    .image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @extend %background-cover;
+    }
+
+    .image.ng-enter {
+        transition: 0.5s;
+    }
+
+    .image.ng-enter {
+        left: 100%;
+    }
+
+    .image.ng-enter-active {
+        left: 0;
+    }
+
+    .button {
+        width: 30%;
+        font-size: 70%;
+        line-height: 1.5;
+        padding: 1.5% 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 10.5%;
+        margin: auto;
+        border-radius: 3px;
+        border: 1px solid white;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        user-select: none;
+
+        &:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        &:active {
+            background-color: rgba(255,255,255,0.1);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+﻿<div class="welcome">
+    <div class="mock"></div>
+    <div ng-view class="image" ng-repeat="image in welcome.data" background-image="image.ImageUrl" ng-if="$index <= welcome.currentActive"></div>
+    <div class="button" ng-show="welcome.entryFlg" ng-click="welcome.enter()">点击进入APP</div>
+
+    <div style="visibility:hidden">
+        <img ng-repeat="image in welcome.data" ng-src="{{image.ImageUrl}}">
+    </div>
+</div>
