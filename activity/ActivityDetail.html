@@ -1,0 +1,107 @@
+﻿<div class="activity-detail">
+    <iframe id="myiframe" class="my-iframe" scrolling="no" frameborder="0"></iframe>
+    <!--<uib-carousel active="activityDetail.activePhoto" no-transition="!activityDetail.transition">
+        <uib-slide ng-repeat="photo in activityDetail.data.SubPostList" index="$index">
+            <img alt="{{activityDetail.activePhoto}}" ng-src="{{photo.PhotoList[0].ThumbnailUrl}}" ng-click="activityDetail.photoView(photo)" style="object-fit: contain;">
+        </uib-slide>
+    </uib-carousel>
+    <div class="photo-detail-info flexbox">
+        <span class="publisher cell left">发布者：{{activityDetail.data.Creator.NickName}}</span>
+        <div class="like" ng-class="{'active': activityDetail.data.SubPostList[activityDetail.activePhoto].IsLiked}" ng-click="activityDetail.like()">
+            {{activityDetail.data.SubPostList[activityDetail.activePhoto].LikesCount}}&nbsp;/&nbsp;
+        </div>
+        <div class="share" ng-click="activityDetail.share()">
+            {{activityDetail.data.SubPostList[activityDetail.activePhoto].ShareCount}}
+        </div>
+    </div>
+    <div class="flexbox">
+        <div class="cell left" ng-click="activityDetail.comment()" style="padding: .5rem 2rem; background-color: #f8f8f8;">
+            评论({{activityDetail.data.SubPostList[activityDetail.activePhoto].CommentsCount}})
+        </div>
+    </div>
+    <comment hide-comment-input="false" subcomment-sref="root.forum.detail.comment" comment-id="activityDetail.data.SubPostList[activityDetail.activePhoto].PostId" callback-plus="activityDetail.changeData()" callback-minus="activityDetail.changeData(true)"></comment>-->
+    <!--<div class="forumItem" ng-show="activityDetail.data.PostId">
+        <div class="info">
+            <div class="userPhoto" background-image="activityDetail.data.Creator.ThumbnailUrl"></div>
+            <div class="name">{{activityDetail.data.Creator.NickName ? activityDetail.data.Creator.NickName : activityDetail.data.Creator.Name}}</div>
+            <div class="date">{{activityDetail.data.CreateDate | date: 'yyyy-MM-dd&nbsp;&nbsp;&nbsp;HH:mm' }}</div>
+        </div>
+        <div class="photoContainer">
+            <div class="mainPhoto" background-image="activityDetail.data.SubPostList[0].PhotoList[0].Url" ng-if="activityDetail.data.SubPostList.length > 0" ng-click="activityDetail.photoView(activityDetail.data.SubPostList[0])"></div>
+            <div class="photo" ng-repeat="subpost in activityDetail.data.SubPostList | limitTo:5" ng-if="$index > 0" background-image="subpost.PhotoList[0].ThumbnailUrl" ng-click="activityDetail.photoView(subpost)"></div>
+        </div>
+        <div class="content">
+            <div class="description">{{activityDetail.data.Description}}&nbsp;<span style="margin-left: 32%"></span></div>
+            <div class="status" ng-show="!activityDetail.isReport">
+                <div class="like" ng-class="{'active': activityDetail.data.IsLiked}" ng-click="activityDetail.like()">
+                    {{activityDetail.data.LikesCount}}
+                </div>
+                <div class="comment" ng-click="activityDetail.comment()">
+                    {{activityDetail.data.CommentsCount}}
+                </div>
+                <div class="share" ng-click="activityDetail.share()">
+                    {{activityDetail.data.ShareCount}}
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>-->
+    <!--<comment ng-show="!activityDetail.isReport" hide-comment-input="true" subcomment-sref="root.forum.detail.comment" comment-id="activityDetail.data.PostId" callback-plus="activityDetail.changeData()" callback-minus="activityDetail.changeData(true)"></comment>-->
+    <!--<div class="forumComment" ng-show="!activityDetail.isReport">
+        <div class="commentContainer" ng-repeat="comment in activityDetail.comments">
+            <div class="comment" ng-click="activityDetail.comment(comment.CommentId)">
+                <div class="userPhoto" background-image="comment.UserModel.ThumbnailUrl"></div>
+                <div class="name">{{comment.UserName}}</div>
+                <div class="date">
+                    <span ng-show="comment.UserModel.AppUserId != activityDetail.user.AppUserId">{{comment.CreateDate | date: 'yyyy-MM-dd&nbsp;&nbsp;&nbsp;HH:mm' }}</span>
+                    <img src="/images/forum/btn_delete.png" ng-show="comment.UserModel.AppUserId == activityDetail.user.AppUserId" ng-click="activityDetail.delComment(comment.CommentId, '', $event)" style="height: 1.5rem; padding: 0 0.5rem;"/>
+                </div>
+                <div class="text">{{comment.Text}}</div>
+            </div>
+
+            <div class="subComment" ng-repeat="subcomment in comment.SubCommentList" ng-click="activityDetail.comment(comment.CommentId, subcomment.CommentId)">
+                <div class="flexbox">
+                    <div class="cell left">
+                        <span class="name">{{subcomment.UserName}} :</span>
+                        <span class="tag" ng-if="subcomment.UserTagList.length > 0">回复 {{subcomment.UserTagList[0].NickName ? subcomment.UserTagList[0].NickName : subcomment.UserTagList[0].Name}} :</span>
+                    </div>
+                    <div class="fixed" ng-show="subcomment.UserModel.AppUserId == activityDetail.user.AppUserId" ng-click="activityDetail.delComment(comment.CommentId, subcomment.CommentId, $event)">
+                        <img src="/images/forum/btn_delete.png" style="height: 1.5rem; padding: 0 0.5rem;"/>
+                    </div>
+                    <span class="text">{{subcomment.Text}}</span>
+                </div>
+                <div class="text">{{subcomment.Text}}</div>
+                <div class="date">{{subcomment.CreateDate | date: 'yyyy-MM-dd&nbsp;&nbsp;&nbsp;HH:mm' }}</div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="pageLoad" ng-show="activityDetail.loading && activityDetail.comments.length == 0"></div>
+
+    <div class="loadingDiv" ng-show="activityDetail.loading && activityDetail.comments.length > 0">
+        <div class="loadingImg"></div>
+    </div>
+
+    <no-data-screen ng-show="!activityDetail.loading && !activityDetail.data.PostId"></no-data-screen>
+
+    <!--report Post Part-->
+    <!--<div ng-show="activityDetail.isReport">
+        <div class="reportContent">
+
+            <div class="report">
+                <div class="chkReport">
+                    <div class="reportType" ng-repeat="item in activityDetail.reportType">
+
+                        <label class="cartCheckBox">
+                            <input type="checkbox" name="reportPost" ng-attr-id="{{'report'+$index}}" ng-model="item.checked" />
+                            <span></span>
+                        </label>
+
+                        <label class="lbl_title" ng-attr-for="{{'report'+$index}}">{{item.Label}}</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>-->
+</div>

@@ -1,0 +1,22 @@
+﻿<div class="activity">
+    <div class="activity-item" ng-repeat="post in activity.data" ng-if="post.DeepLink" ui-sref="root.activity.detail({ postId: post.PostId })">
+        <h3>{{post.Title}}</h3>
+        <div class="date">{{post.CreateDate | date: 'yyyy年M月dd日'}}</div>
+        <div class="img" ng-if="post.PhotoList[0].ThumbnailUrl" background-image="post.PhotoList[0].ThumbnailUrl">
+            <div ng-if="post.completed" class="shadow"></div>
+            <img ng-if="post.completed" class="over" src="/images/activity/completed_activity.png" alt="" />
+        </div>
+        <div class="link flexbox">
+            <span class="cell left">查看全文</span>
+            <span>></span>
+        </div>
+    </div>
+
+    <div class="pageLoad" ng-show="activity.loading && activity.data.length == 0"></div>
+
+    <div class="loadingDiv" ng-show="activity.loading && activity.data.length > 0">
+        <div class="loadingImg"></div>
+    </div>
+
+    <no-data-screen ng-show="!activity.loading && activity.data.length == 0"></no-data-screen>
+</div>
